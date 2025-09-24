@@ -1,4 +1,4 @@
-1. Repo連結：
+1. Repo連結：https://github.com/calculusfkyou/wsse-student-enrollment-labs-2025
 2. PR連結：
 3. Swagger Editor截圖：
 4. PR綠燈截圖：
