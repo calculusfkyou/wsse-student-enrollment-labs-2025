@@ -6,4 +6,9 @@
  ![02-pr-green.png](./02-pr-green.png)
 5. CI內容截圖：
 6. 重點片段連結：
+ https://github.com/calculusfkyou/wsse-student-enrollment-labs-2025/blob/feature/add-students-endpoint/openapi/openapi.yaml#L10-L23
+ https://github.com/calculusfkyou/wsse-student-enrollment-labs-2025/blob/feature/add-students-endpoint/openapi/openapi.yaml#L25-L42
+ https://github.com/calculusfkyou/wsse-student-enrollment-labs-2025/blob/feature/add-students-endpoint/openapi/openapi.yaml#L43-L76
+ https://github.com/calculusfkyou/wsse-student-enrollment-labs-2025/blob/feature/add-students-endpoint/openapi/openapi.yaml#L33-L36
+ https://github.com/calculusfkyou/wsse-student-enrollment-labs-2025/blob/feature/add-students-endpoint/openapi/openapi.yaml#L41-L42
 7. 
