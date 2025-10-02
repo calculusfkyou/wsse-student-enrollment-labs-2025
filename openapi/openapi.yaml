@@ -38,8 +38,8 @@ components:
       type: oauth2
       flows:
         authorizationCode:                          # 本課使用 Code + PKCE
-          authorizationUrl: "https://ap-southeast-2ahq2bcs9h.auth.ap-southeast-2.amazoncognito.com/oauth2/authorize"
-          tokenUrl:         "https://ap-southeast-2ahq2bcs9h.auth.ap-southeast-2.amazoncognito.com/oauth2/token"
+          authorizationUrl: "https://wsse-lab-2025-jiachengwu.auth.ap-southeast-2.amazoncognito.com/oauth2/authorize"
+          tokenUrl:         "https://wsse-lab-2025-jiachengwu.auth.ap-southeast-2.amazoncognito.com/oauth2/token"
           scopes:                                     # 與 Cognito Resource Server 同名
             students.read:  "Read student data"
             students.write: "Create/modify student data"
