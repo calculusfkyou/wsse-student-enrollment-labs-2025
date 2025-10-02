@@ -1,19 +1,14 @@
 name: OpenAPI Minimal CI
-
 on:
   pull_request:
-    paths: ['openapi/**/*.yaml']
-  push:
-    branches: [main]
-
+    paths: ['openapi/**/*.yaml', 'openapi/**/*.yml']
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with:
-          node-version: '18'
+        with: { node-version: '18' }
       - name: Validate with swagger-cli
         run: |
           npm i -g @apidevtools/swagger-cli@4
