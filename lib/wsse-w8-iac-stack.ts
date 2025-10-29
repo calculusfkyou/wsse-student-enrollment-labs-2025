@@ -1,15 +1,15 @@
 // lib/wsse-w8-iac-stack.ts (CloudShell 適用版本)
 
-import * as apigateway from 'aws-cdk-lib/aws-apigateway';
-import { Stack, StackProps, Duration, RemovalPolicy } from 'aws-cdk-lib';
+import { Stack, StackProps, RemovalPolicy, CfnOutput } from 'aws-cdk-lib';
+import * as cdk from 'aws-cdk-lib'; // <-- 確保有這一行
 import { Construct } from 'constructs';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
-// 注意：我們不再需要 NodejsFunction
 import * as sns from 'aws-cdk-lib/aws-sns';
 import * as sqs from 'aws-cdk-lib/aws-sqs';
 import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as eventSources from 'aws-cdk-lib/aws-lambda-event-sources';
+import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as path from 'path';
 
 export class WsseW8IacStack extends Stack {
