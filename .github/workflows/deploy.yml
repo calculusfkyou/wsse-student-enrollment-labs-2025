@@ -27,7 +27,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-1 # 請根據您的區域修改
+          aws-region: ap-southeast-2 # 請根據您的區域修改
 
       - name: Install dependencies
         run: npm ci
