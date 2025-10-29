@@ -1,5 +1,6 @@
 // lib/wsse-w8-iac-stack.ts (CloudShell 適用版本)
 
+import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import { Stack, StackProps, Duration, RemovalPolicy } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
