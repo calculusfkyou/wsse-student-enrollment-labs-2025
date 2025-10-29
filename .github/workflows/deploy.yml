@@ -3,7 +3,7 @@ name: Deploy with CDK
 on:
   push:
     branches:
-      - "main"
+      - "feature/lab06"
 
 # 注意：我們不再需要 OIDC 的 permissions 區塊
 
