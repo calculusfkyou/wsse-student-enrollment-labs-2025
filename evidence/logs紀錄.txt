@@ -1,0 +1,15 @@
+C:\Users\user>curl -s -X POST -H "Content-Type: application/json" -d "{\"name\":\"Final Test\",\"email\":\"final@example.com\"}" "https://4vcy37m8id.execute-api.ap-southeast-2.amazonaws.com/prod/" -i
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 284
+Connection: keep-alive
+Date: Wed, 29 Oct 2025 09:27:47 GMT
+X-Amzn-Trace-Id: Root=1-6901de12-3db61ccb2b28633645113d18;Parent=3df06b381dcb22cd;Sampled=0;Lineage=1:32c6cc4f:0
+x-amzn-RequestId: b82688cf-5476-4a25-b784-9470b057b341
+x-amz-apigw-id: TM-i4GwKywMEhxg=
+X-Cache: Miss from cloudfront
+Via: 1.1 7454e964d5a9576b6511839d67defe2a.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: TPE53-P2
+X-Amz-Cf-Id: opO2C63oBqAd9WEWRVtoF1__K9jKb6hBRAvIOpclcREe1gefG2ap1Q==
+
+{"message":"Student created successfully","payload":{"PK":"STUDENT#38c0f8cd-8902-4a0d-8297-e3ea2b32accd","SK":"PROFILE#38c0f8cd-8902-4a0d-8297-e3ea2b32accd","Id":"38c0f8cd-8902-4a0d-8297-e3ea2b32accd","name":"Final Test","email":"final@example.com","time":"2025-10-29T09:27:47.586Z"}}
