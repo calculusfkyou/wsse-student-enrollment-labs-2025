@@ -75,5 +75,18 @@ export class WsseW8IacStack extends Stack {
 
     // 9. 授予 Consumer Lambda 最小權限
     queue.grantConsumeMessages(consumer);
+
+    // 10. 建立 API Gateway 並整合 Producer Lambda
+    const api = new apigateway.LambdaRestApi(this, 'StudentsApi', {
+      handler: producer,
+      proxy: true, // 使用代理整合
+      description: 'API for student enrollment'
+    });
+
+    // 11. (重要!) 輸出 API Gateway 的 URL
+    new cdk.CfnOutput(this, 'ApiUrl', {
+      value: api.url,
+      description: 'The URL of the API Gateway endpoint',
+    });
   }
 }
