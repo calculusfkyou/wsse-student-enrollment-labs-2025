@@ -87,7 +87,7 @@ export class WsseW8IacStack extends Stack {
     });
 
     // 11. (重要!) 輸出 API Gateway 的 URL
-    new cdk.CfnOutput(this, 'ApiUrl', {
+    new cdk.CfnOutput(this, 'ApiEndpointUrl', {
       value: api.url,
       description: 'The URL of the API Gateway endpoint',
     });
