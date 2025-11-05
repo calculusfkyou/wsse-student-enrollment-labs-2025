@@ -25,6 +25,7 @@ export const handler = async (event: any) => {
         message: 'name 與 email 為必填欄位'
       })
     };
+    //throw new Error("Missing required parameters: name and email");
   }
 
   // 3. 準備並寫入 DynamoDB
