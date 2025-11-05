@@ -54,7 +54,7 @@ export class WsseW8IacStack extends Stack {
       environment: {
         TABLE_NAME: table.tableName,
         TOPIC_ARN: topic.topicArn
-      }
+      },
       logRetention: logs.RetentionDays.ONE_WEEK, // 日誌保留一週
       tracing: lambda.Tracing.ACTIVE,          // 啟用 AWS X-Ray
     });
