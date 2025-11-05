@@ -1,5 +1,3 @@
-// lib/wsse-w8-iac-stack.ts (CloudShell 適用版本)
-
 import * as logs from 'aws-cdk-lib/aws-logs';
 import { Stack, StackProps, RemovalPolicy, CfnOutput } from 'aws-cdk-lib';
 import * as cdk from 'aws-cdk-lib'; // <-- 確保有這一行
