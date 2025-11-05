@@ -1,3 +1,6 @@
+import * as cloudwatch from 'aws-cdk-lib/aws-cloudwatch';
+import * as cloudwatchActions from 'aws-cdk-lib/aws-cloudwatch-actions';
+import * as snsSubscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as logs from 'aws-cdk-lib/aws-logs';
 import { Stack, StackProps, RemovalPolicy, CfnOutput } from 'aws-cdk-lib';
 import * as cdk from 'aws-cdk-lib'; // <-- 確保有這一行
@@ -91,5 +94,43 @@ export class WsseW8IacStack extends Stack {
       value: api.url,
       description: 'The URL of the API Gateway endpoint',
     });
+
+    // ★★ 步驟二：建立 Metrics, Alarm, Dashboard ★★
+
+    // 1. 從 Producer Lambda 取得 Metrics
+    const errors = producer.metricErrors();
+    const duration = producer.metricDuration();
+
+    // 2. 建立一個新的 SNS Topic 專門用於告警
+    const alertTopic = new sns.Topic(this, 'AlertTopic');
+
+    // (重要!) 將您的 Email 加入訂閱 (請務必修改為您自己的 Email)
+    alertTopic.addSubscription(new snsSubscriptions.EmailSubscription('charlie930320@gmail.com'));
+
+    // 3. 建立 CloudWatch Alarm
+    const alarm = new cloudwatch.Alarm(this, 'ErrorAlarm', {
+      alarmName: 'LambdaErrorAlarm',
+      metric: errors,
+      threshold: 3, // 當錯誤次數 >= 3
+      evaluationPeriods: 1, // 在一個評估週期 (預設 5 分鐘) 內
+      alarmDescription: 'Alarm when the Producer Lambda fails 3 or more times in 5 minutes'
+    });
+
+    // 4. 將 Alarm 與 SNS Topic 連動
+    alarm.addAlarmAction(new cloudwatchActions.SnsAction(alertTopic));
+
+    // 5. 建立 CloudWatch Dashboard
+    const dashboard = new cloudwatch.Dashboard(this, 'SystemDashboard', {
+      dashboardName: 'StudentServiceDashboard'
+    });
+  
+    // 6. 在 Dashboard 中加入圖表
+    dashboard.addWidgets(
+      new cloudwatch.GraphWidget({
+        title: 'Lambda Errors vs Duration',
+        left: [errors],    // 左邊 Y 軸顯示錯誤次數
+        right: [duration], // 右邊 Y 軸顯示執行時間 (ms)
+      })
+    );
   }
 }
