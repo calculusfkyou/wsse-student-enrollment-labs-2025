@@ -55,6 +55,8 @@ export class WsseW8IacStack extends Stack {
         TABLE_NAME: table.tableName,
         TOPIC_ARN: topic.topicArn
       }
+      logRetention: logs.RetentionDays.ONE_WEEK, // 日誌保留一週
+      tracing: lambda.Tracing.ACTIVE,          // 啟用 AWS X-Ray
     });
 
     // 6. 建立 Consumer Lambda (使用 lambda.Function)
@@ -63,6 +65,8 @@ export class WsseW8IacStack extends Stack {
       runtime: lambda.Runtime.NODEJS_18_X,
       code: lambda.Code.fromAsset(path.join(__dirname, '../dist')),
       handler: 'consumer.handler',
+      logRetention: logs.RetentionDays.ONE_WEEK, // 日誌保留一週
+      tracing: lambda.Tracing.ACTIVE,          // 啟用 AWS X-Ray
     });
 
     // 7. 設定 SQS 作為 Consumer Lambda 的事件來源
