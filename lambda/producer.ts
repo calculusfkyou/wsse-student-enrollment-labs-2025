@@ -3,13 +3,9 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { PutCommand, DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
 import { SNSClient, PublishCommand } from '@aws-sdk/client-sns';
 import { randomUUID } from 'crypto';
-import * as AWSXRay from 'aws-xray-sdk-core'; // <-- 1. 引入 X-Ray SDK
 
-// 2. 使用 X-Ray 包裹 AWS SDK Client
-const ddbClient = AWSXRay.captureAWSv3Client(new DynamoDBClient({}));
-const snsClient = AWSXRay.captureAWSv3Client(new SNSClient({}));
-
-const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
+const ddbDocClient = DynamoDBDocumentClient.from(new DynamoDBClient({}));
+const sns = new SNSClient({});
 
 const TABLE_NAME = process.env.TABLE_NAME!;
 const TOPIC_ARN = process.env.TOPIC_ARN!;
@@ -53,7 +49,7 @@ export const handler = async (event: any) => {
     time: new Date().toISOString()
   };
 
-  await snsClient.send(new PublishCommand({
+  await sns.send(new PublishCommand({
     TopicArn: TOPIC_ARN,
     Message: JSON.stringify(payload)
   }));
