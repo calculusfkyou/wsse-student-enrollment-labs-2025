@@ -1,0 +1,8 @@
+1. 加密驗證截圖(DynamoDB)  
+   ![加密驗證截圖(DynamoDB).png](./加密驗證截圖(DynamoDB).png)
+2. 加密驗證截圖(S3)  
+   ![加密驗證截圖(S3).png](./加密驗證截圖(S3).png)
+3. 環境變數設定截圖(Lambda Configuration)  
+   ![環境變數設定截圖(LambdaConfiguration).png](./環境變數設定截圖(LambdaConfiguration).png)
+4. 程式執行成功截圖(Execution Result)  
+   ![程式執行成功截圖(ExecutionResult).png](./程式執行成功截圖(ExecutionResult).png)
